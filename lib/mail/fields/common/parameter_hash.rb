@@ -45,8 +45,8 @@ module Mail
           value = Mail::Encodings.param_encode(value)
           key_name = "#{key_name}*"
         end
-        %Q{#{key_name}=#{quote_token(value)}}
-      end.join(";\r\n\s")
+        %Q{#{key_name}="#{value}"}
+      end.join(";\s")
     end
 
     def decoded
